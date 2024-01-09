@@ -4,7 +4,7 @@ import argparse
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description="CSV Reconciler Tool")
+    parser = argparse.ArgumentParser(description="CSV Reconciliation Tool")
     parser.add_argument('-s', '--source', required=True, help='Path to the source CSV file')
     parser.add_argument('-t', '--target', required=True, help='Path to the target CSV file')
     parser.add_argument('-o', '--output', required=True, help='Path to save the output reconciliation report')
@@ -119,10 +119,10 @@ def index_discrepancy(comparison: dict, source_data: list, target_data: list) ->
     for comparison in comparison.keys():
         if comparison == 'target':
             idx = comparison.get(comparison)[0] + 1
-            temp.append(f'Missing in source, {target_data[idx]}')
+            temp.append(f"Missing in source, {target_data[idx]}")
         if comparison == 'source':
             idx = comparison.get(comparison)[0] + 1
-            temp.append(f'Missing in target, {source_data[idx]}')
+            temp.append(f"Missing in target, {source_data[idx]}")
 
     for item in temp:
         arr_fmt = str(item).replace("[", "")
